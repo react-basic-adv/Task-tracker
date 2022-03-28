@@ -43,7 +43,9 @@ function App() {
 
 
   const addTask = (task) => {
-    console.log(task);
+    const id = Math.floor(Math.random() * 1000);
+    const newTask = { ...task, id }
+    setTasks([...tasks, newTask])
   }
 
   return (
@@ -52,7 +54,7 @@ function App() {
 
         <Header onShow={() => setOnShowTask(!showTask)} showTask={showTask} />
 
-        {showTask && <Add />}
+        {showTask && <Add onAdd={addTask} />}
 
         {
           tasks.length > 0 ? (
