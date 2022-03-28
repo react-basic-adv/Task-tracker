@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
 
-const Button = ({ color, colorText, text }) => {
+const Button = ({ color, colorText, text, onClick }) => {
+
+
+    // const onClick = () => {
+    //     console.log("click");
+    // }
 
     const styles = {
         backgroundColor: color,
@@ -8,7 +13,7 @@ const Button = ({ color, colorText, text }) => {
     }
 
     return (
-        <button style={styles} type='button' className='btn'> {text} </button>
+        <button onClick={onClick} style={styles} type='button' className='btn'> {text} </button>
     )
 }
 
@@ -21,7 +26,8 @@ Button.defaultProps = {
 Button.propTypes = {
     color: PropTypes.string,
     colorText: PropTypes.string,
-    text: PropTypes.string
+    text: PropTypes.string,
+    onClick: PropTypes.func
 }
 
 
